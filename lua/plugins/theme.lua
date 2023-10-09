@@ -22,6 +22,8 @@ return {
             end
         }
 
+	vim.cmd.colorscheme 'catppuccin-mocha'
+
         local clrs = require("catppuccin.palettes").get_palette()
         local ctp_feline = require('catppuccin.groups.integrations.feline')
         local U = require "catppuccin.utils.colors"
