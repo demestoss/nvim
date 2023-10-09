@@ -188,6 +188,8 @@ vim.wo.number = true
 vim.wo.relativenumber = true
 vim.o.mouse = 'a'
 vim.o.clipboard = 'unnamedplus'
+vim.o.scrolloff = 16
+vim.o.showmode = false
 
 vim.o.breakindent = true
 vim.o.undofile = true
@@ -201,6 +203,7 @@ vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 
 vim.o.completeopt = 'menuone,noselect'
+vim.cmd.colorscheme 'catppuccin-mocha'
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -222,6 +225,24 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+
+vim.keymap.set('n', '<C-j>', ':cnext<CR>')
+vim.keymap.set('n', '<C-k>', ':cprev<CR>')
+vim.keymap.set('n', '<C-E>', ':copen<CR>')
+vim.keymap.set('v', '<leader>p', '"_dP')
+vim.keymap.set('v', '<leader>y', '"+y')
+vim.keymap.set('n', '<leader>y', '"+y')
+vim.keymap.set('n', '<leader>Y', 'gg"+yG')
+vim.keymap.set('n', 'J', ':m \'>+1<CR>gv=gv')
+vim.keymap.set('n', 'K', ':m \'<-2<CR>gv=gv')
+
+vim.keymap.set('n', '<leader>-', ':nohls<CR>')
+
+vim.keymap.set('n', '<leader><CR>', ':so ~/.config/nvim/init.vim<CR>')
+vim.keymap.set('n', '<leader>x', ':!chmod +x %<CR>')
+
+vim.keymap.set('n', '<C-t>', ':silent !tmux neww tt<CR>', { silent = true })
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
