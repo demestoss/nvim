@@ -1,13 +1,19 @@
 return {
     { 'freddiehaddad/feline.nvim' },
     {
+        'xiyaowong/transparent.nvim',
+        extra_groups = {
+            "NormalFloat",   -- plugins which have float panel such as Lazy, Mason, LspInfo
+            "NvimTreeNormal" -- NvimTree
+        },
+    },
+    {
         "catppuccin/nvim",
         name = "catppuccin",
         priority = 1000,
         config = function()
             require("catppuccin").setup {
                 flavour = "macchiato",
-                transparent_background = true,
                 highlight = {
                     enable = true,
                     additional_vim_regex_highlighting = false

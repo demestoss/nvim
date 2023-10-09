@@ -15,49 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-    },
-    opts = {
-      filesystem = {
-        filtered_items = {
-          visible = true,
-          show_hidden_count = true,
-          hide_dotfiles = false,
-          hide_gitignored = true,
-          hide_by_name = {
-            -- '.git',
-            -- '.DS_Store',
-            -- 'thumbs.db',
-          },
-          never_show = {},
-        },
-        follow_current_file = {
-          enabled = true, -- This will find and focus the file in the active buffer every time
-          --               -- the current file is changed while the tree is open.
-          leave_dirs_open = true,
-        },
-        group_empty_dirs = true,
-        hijack_netrw_behavior = "open_default",
-      },
-      close_if_last_window = true,
-      buffers = {
-        follow_current_file = {
-          enabled = true, -- This will find and focus the file in the active buffer every time
-          --              -- the current file is changed while the tree is open.
-          leave_dirs_open = true,
-        },
-        group_empty_dirs = true, -- when true, empty folders will be grouped together
-      },
-    }
-  },
-
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -76,7 +33,6 @@ require("lazy").setup({
       'folke/neodev.nvim',
     },
   },
-
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
@@ -175,95 +131,17 @@ require("lazy").setup({
     },
   },
   { 'ThePrimeagen/vim-be-good' },
+  { 'nvim-lua/plenary.nvim' },
+  { 'ThePrimeagen/harpoon' },
   require 'plugins.autoformat',
+  require 'plugins.neotree',
   require 'plugins.autopairs',
   require 'plugins.theme',
 })
 
--- [[ Configure Telescope ]]
--- See `:help telescope` and `:help telescope.setup()`
-require('telescope').setup {
-  defaults = {
-    mappings = {
-      i = {
-        ['<C-u>'] = false,
-        ['<C-d>'] = false,
-      },
-    },
-  },
-}
-
--- Enable telescope fzf native, if installed
-pcall(require('telescope').load_extension, 'fzf')
-
--- [[ Configure Treesitter ]]
--- See `:help nvim-treesitter`
--- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
-vim.defer_fn(function()
-  require('nvim-treesitter.configs').setup {
-    -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim' },
-
-    -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-    auto_install = false,
-
-    highlight = { enable = true },
-    indent = { enable = true },
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = '<c-space>',
-        node_incremental = '<c-space>',
-        scope_incremental = '<c-s>',
-        node_decremental = '<M-space>',
-      },
-    },
-    textobjects = {
-      select = {
-        enable = true,
-        lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-        keymaps = {
-          -- You can use the capture groups defined in textobjects.scm
-          ['aa'] = '@parameter.outer',
-          ['ia'] = '@parameter.inner',
-          ['af'] = '@function.outer',
-          ['if'] = '@function.inner',
-          ['ac'] = '@class.outer',
-          ['ic'] = '@class.inner',
-        },
-      },
-      move = {
-        enable = true,
-        set_jumps = true, -- whether to set jumps in the jumplist
-        goto_next_start = {
-          [']m'] = '@function.outer',
-          [']]'] = '@class.outer',
-        },
-        goto_next_end = {
-          [']M'] = '@function.outer',
-          [']['] = '@class.outer',
-        },
-        goto_previous_start = {
-          ['[m'] = '@function.outer',
-          ['[['] = '@class.outer',
-        },
-        goto_previous_end = {
-          ['[M'] = '@function.outer',
-          ['[]'] = '@class.outer',
-        },
-      },
-      swap = {
-        enable = true,
-        swap_next = {
-          ['<leader>a'] = '@parameter.inner',
-        },
-        swap_previous = {
-          ['<leader>A'] = '@parameter.inner',
-        },
-      },
-    },
-  }
-end, 0)
+require('plugins.telescope')
+require('plugins.treesitter')
+require('plugins.harpoon')
 
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
