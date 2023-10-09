@@ -9,8 +9,16 @@ vim.o.clipboard = 'unnamedplus'
 vim.o.scrolloff = 16
 vim.o.showmode = false
 
+vim.o.swapfile = false
+vim.o.backup = false
+vim.o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.o.breakindent = true
 vim.o.undofile = true
+
+vim.o.incsearch = true
+vim.o.updatetime = 50
+
+-- vim.o.colorcolumn = "80"
 
 vim.o.ignorecase = true
 vim.o.smartcase = true
