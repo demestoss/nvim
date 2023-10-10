@@ -64,6 +64,7 @@ local servers = {
   svelte = {},
   pyright = {},
   rust_analyzer = {},
+  yamlls = {},
   tsserver = {},
   eslint = {},
   html = { filetypes = { 'html', 'twig', 'hbs' } },
