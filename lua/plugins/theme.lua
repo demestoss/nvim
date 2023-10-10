@@ -47,9 +47,32 @@ return {
             }
 
             local assets = {
+                mode_icon = "",
+                left_separator = "",
+                right_separator = "",
+                dir = "󰉖",
+                file = "󰈙",
+                lsp = {
+                    server = "󰅡",
+                    error = "",
+                    warning = "",
+                    info = "",
+                    hint = "",
+                },
+                git = {
+                    branch = "",
+                    added = "",
+                    changed = "",
+                    removed = "",
+                },
+            }
+
+
+            ctp_feline.setup({
+                assets = {
                     mode_icon = "",
-                    left_separator = "",
-                    right_separator = "",
+                    left_separator = " ",
+                    right_separator = " ",
                     dir = "󰉖",
                     file = "󰈙",
                     lsp = {
@@ -66,52 +89,29 @@ return {
                         removed = "",
                     },
                 },
-
-
-                ctp_feline.setup({
-                    assets = {
-                        mode_icon = "",
-                        left_separator = " ",
-                        right_separator = " ",
-                        dir = "󰉖",
-                        file = "󰈙",
-                        lsp = {
-                            server = "󰅡",
-                            error = "",
-                            warning = "",
-                            info = "",
-                            hint = "",
-                        },
-                        git = {
-                            branch = "",
-                            added = "",
-                            changed = "",
-                            removed = "",
-                        },
-                    },
-                    mode_colors = {
-                        ["n"] = { "NORMAL", clrs.lavender },
-                        ["no"] = { "N-PENDING", clrs.lavender },
-                        ["i"] = { "INSERT", clrs.green },
-                        ["ic"] = { "INSERT", clrs.green },
-                        ["t"] = { "TERMINAL", clrs.green },
-                        ["v"] = { "VISUAL", clrs.flamingo },
-                        ["V"] = { "V-LINE", clrs.flamingo },
-                        ["�"] = { "V-BLOCK", clrs.flamingo },
-                        ["R"] = { "REPLACE", clrs.maroon },
-                        ["Rv"] = { "V-REPLACE", clrs.maroon },
-                        ["s"] = { "SELECT", clrs.maroon },
-                        ["S"] = { "S-LINE", clrs.maroon },
-                        ["�"] = { "S-BLOCK", clrs.maroon },
-                        ["c"] = { "COMMAND", clrs.peach },
-                        ["cv"] = { "COMMAND", clrs.peach },
-                        ["ce"] = { "COMMAND", clrs.peach },
-                        ["r"] = { "PROMPT", clrs.teal },
-                        ["rm"] = { "MORE", clrs.teal },
-                        ["r?"] = { "CONFIRM", clrs.mauve },
-                        ["!"] = { "SHELL", clrs.green },
-                    }
-                })
+                mode_colors = {
+                    ["n"] = { "NORMAL", clrs.lavender },
+                    ["no"] = { "N-PENDING", clrs.lavender },
+                    ["i"] = { "INSERT", clrs.green },
+                    ["ic"] = { "INSERT", clrs.green },
+                    ["t"] = { "TERMINAL", clrs.green },
+                    ["v"] = { "VISUAL", clrs.flamingo },
+                    ["V"] = { "V-LINE", clrs.flamingo },
+                    ["�"] = { "V-BLOCK", clrs.flamingo },
+                    ["R"] = { "REPLACE", clrs.maroon },
+                    ["Rv"] = { "V-REPLACE", clrs.maroon },
+                    ["s"] = { "SELECT", clrs.maroon },
+                    ["S"] = { "S-LINE", clrs.maroon },
+                    ["�"] = { "S-BLOCK", clrs.maroon },
+                    ["c"] = { "COMMAND", clrs.peach },
+                    ["cv"] = { "COMMAND", clrs.peach },
+                    ["ce"] = { "COMMAND", clrs.peach },
+                    ["r"] = { "PROMPT", clrs.teal },
+                    ["rm"] = { "MORE", clrs.teal },
+                    ["r?"] = { "CONFIRM", clrs.mauve },
+                    ["!"] = { "SHELL", clrs.green },
+                }
+            })
 
             local components = ctp_feline.get()
 
