@@ -135,6 +135,20 @@ require("lazy").setup({
   { 'ThePrimeagen/harpoon' },
   { 'mbbill/undotree' },
   { 'tpope/vim-fugitive' },
+  {
+    'mfussenegger/nvim-lint',
+    event = "VeryLazy",
+    config = function()
+      require "plugins.lint"
+    end
+  },
+  {
+    'mhartington/formatter.nvim',
+    event = "VeryLazy",
+    config = function()
+      require "plugins.formatter"
+    end
+  },
   require 'plugins.autoformat',
   require 'plugins.neotree',
   require 'plugins.autopairs',
