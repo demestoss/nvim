@@ -1,3 +1,2 @@
-require('options')
-require('lazy-manager')
-require('keymaps')
+require("demestoss.core")
+require("demestoss.lazy")
