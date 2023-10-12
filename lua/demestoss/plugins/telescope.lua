@@ -24,7 +24,7 @@ return {
             ["<C-d>"] = false,
             ["<C-k>"] = actions.move_selection_previous, -- move to prev result
             ["<C-j>"] = actions.move_selection_next, -- move to next result
-            ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
           },
           n = {
             ["q"] = actions.close,
@@ -53,7 +53,6 @@ return {
     vim.keymap.set("n", "<leader>/", function()
       -- You can pass additional configuration to telescope to change theme, layout, etc.
       require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-        winblend = 10,
         previewer = false,
       }))
     end, { desc = "[/] Fuzzily search in current buffer" })
@@ -80,7 +79,7 @@ return {
 
     vim.keymap.set(
       "n",
-      "<leader>wc",
+      "<leader>wa",
       require("telescope").extensions.git_worktree.create_git_worktree,
       { desc = "[G]it [C]reate [W]orktree" }
     )
