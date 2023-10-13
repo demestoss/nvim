@@ -16,10 +16,10 @@ return {
     vim.keymap.set("n", "<C-m>", function()
       ui.nav_file(2)
     end)
-    vim.keymap.set("n", "<leader>b", function()
+    vim.keymap.set("n", "<C-g>", function()
       ui.nav_file(3)
     end)
-    vim.keymap.set("n", "<leader>m", function()
+    vim.keymap.set("n", "<C-y>", function()
       ui.nav_file(4)
     end)
 
