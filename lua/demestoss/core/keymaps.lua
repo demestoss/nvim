@@ -9,6 +9,7 @@ vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 vim.cmd([[nnoremap <leader>e :Neotree toggle reveal<CR>]])
+vim.cmd([[nnoremap <leader>x :Neotree toggle current reveal<CR>]])
 vim.keymap.set("n", "<leader><F5>", vim.cmd.UndotreeToggle)
 
 vim.keymap.set("v", "<leader>p", '"_dP')
@@ -30,7 +31,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "<leader>-", ":nohls<CR>")
 
 vim.keymap.set("n", "<leader><CR>", ":so ~/.config/nvim/init.lua<CR>")
-vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>")
+vim.keymap.set("n", "<leader>X", ":!chmod +x %<CR>")
 
 vim.keymap.set("n", "<C-t>", ":silent !tmux neww tt<CR>", { silent = true })
 
