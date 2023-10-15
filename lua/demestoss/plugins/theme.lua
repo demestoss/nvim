@@ -52,40 +52,6 @@ return {
 
     local clrs = require("catppuccin.palettes").get_palette()
     local ctp_feline = require("catppuccin.groups.integrations.feline")
-    local U = require("catppuccin.utils.colors")
-
-    local mocha = require("catppuccin.palettes").get_palette("mocha")
-
-    local sett = {
-      text = U.vary_color({ mocha = mocha.base }, clrs.surface0),
-      bkg = U.vary_color({ mocha = mocha.crust }, clrs.surface0),
-      diffs = clrs.mauve,
-      extras = clrs.overlay1,
-      curr_file = clrs.maroon,
-      curr_dir = clrs.flamingo,
-      show_modified = true, -- show if the file has been modified
-    }
-
-    local assets = {
-      mode_icon = "",
-      left_separator = "",
-      right_separator = "",
-      dir = "󰉖",
-      file = "󰈙",
-      lsp = {
-        server = "󰅡",
-        error = "",
-        warning = "",
-        info = "",
-        hint = "",
-      },
-      git = {
-        branch = "",
-        added = "",
-        changed = "",
-        removed = "",
-      },
-    }
 
     ctp_feline.setup({
       assets = {
@@ -132,36 +98,8 @@ return {
       },
     })
 
-    local components = ctp_feline.get()
-
-    local function is_enabled(min_width)
-      return vim.api.nvim_win_get_width(0) > min_width
-    end
-
-    components.active[3][3] = {
-      provider = function()
-        local filename = vim.fn.fnamemodify(vim.fn.expand("%"), ":p:~:.")
-        local extension = vim.fn.expand("%:e")
-        local present, icons = pcall(require, "nvim-web-devicons")
-        local icon = present and icons.get_icon(filename, extension) or "󰈙"
-        return (true and "%m" or "") .. " " .. icon .. " " .. filename .. " "
-      end,
-      enabled = is_enabled(70),
-      hl = {
-        fg = sett.text,
-        bg = sett.curr_file,
-      },
-      left_sep = {
-        str = assets.left_separator,
-        hl = {
-          fg = sett.curr_file,
-          bg = sett.bkg,
-        },
-      },
-    }
-
     require("feline").setup({
-      components = components,
+      components = ctp_feline.get(),
     })
   end,
 }
