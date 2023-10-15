@@ -37,6 +37,17 @@ return {
       end,
     })
 
+    require("catppuccin").setup({
+      highlight_overrides = {
+        mocha = function(mocha)
+          return {
+            CursorLineNr = { fg = mocha.flamingo },
+            CursorLineNR = { fg = mocha.flamingo },
+          }
+        end,
+      },
+    })
+
     vim.cmd.colorscheme("catppuccin-mocha")
 
     local clrs = require("catppuccin.palettes").get_palette()
