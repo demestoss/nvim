@@ -25,7 +25,6 @@ return {
       vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
 
       opts.desc = "[G]oto LSP [D]efinition"
-      -- vim.keymap.set("n", "gd", "<Cmd>Lspsaga lsp_finder<CR>", opts) -- show lsp definitions
       vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
 
       opts.desc = "[G]oto LSP [I]mplementation"
@@ -41,15 +40,12 @@ return {
       vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
 
       opts.desc = "Hover documentation"
-      -- vim.keymap.set("n", "K", "<Cmd>Lspsaga hover_doc<CR>", opts) -- show documentation for what is under cursor
       vim.keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
       opts.desc = "Go to previous diagnostic"
-      -- vim.keymap.set("n", "[d", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", opts) -- jump to previous diagnostic in buffer
       vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
 
       opts.desc = "Go to next diagnostic"
-      -- vim.keymap.set("n", "]d", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts) -- jump to next diagnostic in buffer
       vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
 
       opts.desc = "Show line diagnostics"
@@ -62,7 +58,6 @@ return {
       vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 
       opts.desc = "Signature Documentation"
-      -- vim.keymap.set("i", "<C-h>", "<Cmd>Lspsaga signature_help<CR>", opts)
       vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 
       opts.desc = "[D]ocument [S]ymbols"
@@ -154,6 +149,10 @@ return {
       local hl = "DiagnosticSign" .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
+
+    vim.diagnostic.config({
+      severity_sort = true,
+    })
 
     -- Create an augroup that is used for managing our formatting autocmds.
     --      We need one augroup per client to make sure that multiple clients

@@ -54,6 +54,7 @@ return {
         "yamlfmt",
         "yamllint",
         "stylua",
+        "codelldb",
       },
     })
   end,
