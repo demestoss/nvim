@@ -69,7 +69,7 @@ return {
         { name = "path" }, -- file system paths
       },
       formatting = {
-        format = lspkind.cmp_format({ with_text = false, maxwidth = 50 }),
+        format = lspkind.cmp_format({ maxwidth = 50, mode = "symbol_text" }),
       },
     })
 

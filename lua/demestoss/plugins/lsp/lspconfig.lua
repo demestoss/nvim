@@ -78,6 +78,32 @@ return {
     lspconfig["tsserver"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      settings = {
+        typescript = {
+          inlayHints = {
+            includeInlayParameterNameHints = "all",
+            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+            includeInlayFunctionParameterTypeHints = true,
+            includeInlayVariableTypeHints = true,
+            includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+            includeInlayPropertyDeclarationTypeHints = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+            includeInlayEnumMemberValueHints = true,
+          },
+        },
+        javascript = {
+          inlayHints = {
+            includeInlayParameterNameHints = "all",
+            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+            includeInlayFunctionParameterTypeHints = true,
+            includeInlayVariableTypeHints = true,
+            includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+            includeInlayPropertyDeclarationTypeHints = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+            includeInlayEnumMemberValueHints = true,
+          },
+        },
+      },
     })
     lspconfig["eslint"].setup({
       capabilities = capabilities,
@@ -138,6 +164,7 @@ return {
         Lua = {
           workspace = { checkThirdParty = false },
           telemetry = { enable = false },
+          hint = { enable = true },
         },
       },
     })
@@ -210,5 +237,12 @@ return {
         })
       end,
     })
+
+    -- Inlay hints
+    if vim.lsp.inlay_hint then
+      vim.keymap.set("n", "<leader>hu", function()
+        vim.lsp.inlay_hint(0, nil)
+      end, { desc = "Toggle Inlay Hints" })
+    end
   end,
 }
