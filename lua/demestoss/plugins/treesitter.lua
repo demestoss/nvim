@@ -24,6 +24,8 @@ return {
         "dockerfile",
         "markdown",
         "markdown_inline",
+        "regex",
+        "bash",
         "html",
         "css",
         "json",
