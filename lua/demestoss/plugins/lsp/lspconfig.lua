@@ -75,33 +75,15 @@ return {
       on_attach = on_attach,
       filetypes = { "html", "twig", "hbs" },
     })
-    lspconfig["tsserver"].setup({
-      capabilities = capabilities,
+    require("typescript-tools").setup({
       on_attach = on_attach,
       settings = {
-        typescript = {
-          inlayHints = {
-            includeInlayParameterNameHints = "all",
-            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-            includeInlayFunctionParameterTypeHints = true,
-            includeInlayVariableTypeHints = true,
-            includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-            includeInlayPropertyDeclarationTypeHints = true,
-            includeInlayFunctionLikeReturnTypeHints = true,
-            includeInlayEnumMemberValueHints = true,
-          },
+        code_lens = "references_only",
+        tsserver_file_preferences = {
+          includeInlayParameterNameHints = "all",
         },
-        javascript = {
-          inlayHints = {
-            includeInlayParameterNameHints = "all",
-            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-            includeInlayFunctionParameterTypeHints = true,
-            includeInlayVariableTypeHints = true,
-            includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-            includeInlayPropertyDeclarationTypeHints = true,
-            includeInlayFunctionLikeReturnTypeHints = true,
-            includeInlayEnumMemberValueHints = true,
-          },
+        tsserver_plugins = {
+          "@styled/typescript-styled-plugin",
         },
       },
     })
@@ -121,11 +103,6 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
     })
-    -- lspconfig["emmet_ls"].setup({
-    --   capabilities = capabilities,
-    --   on_attach = on_attach,
-    --   filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-    -- })
     lspconfig["pyright"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
@@ -208,12 +185,6 @@ return {
 
         -- Only attach to clients that support document formatting
         if not client.server_capabilities.documentFormattingProvider then
-          return
-        end
-
-        -- Tsserver usually works poorly. Sorry you work with bad languages
-        -- You can remove this line if you know what you're doing :)
-        if client.name == "tsserver" then
           return
         end
 

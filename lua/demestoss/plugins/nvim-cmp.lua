@@ -64,7 +64,7 @@ return {
       }),
       sources = {
         { name = "nvim_lsp" },
-        { name = "luasnip" },
+        -- { name = "luasnip" },
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
       },
