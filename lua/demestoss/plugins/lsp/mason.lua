@@ -56,6 +56,7 @@ return {
         "yamllint",
         "stylua",
         "codelldb",
+        "beautysh",
       },
     })
   end,

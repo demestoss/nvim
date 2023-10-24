@@ -19,6 +19,7 @@ return {
         markdown = { "prettier" },
         yaml = { "yamlfix", "yamlfmt" },
         tsx = { { "prettierd", "prettier" } },
+        sh = { "beautysh" },
         ["*"] = { "trim_whitespace" },
       },
       format_on_save = {
