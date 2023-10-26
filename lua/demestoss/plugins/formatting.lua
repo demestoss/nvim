@@ -9,7 +9,7 @@ return {
         python = { "isort", "black" },
         javascript = { { "prettierd", "prettier" } },
         javascriptreact = { { "prettierd", "prettier" } },
-        typescript = { { "prettierd", "prettier" } },
+        typescript = { { "prettier" } },
         vue = { { "prettierd", "prettier" } },
         svelte = { { "prettierd", "prettier" } },
         typescriptreact = { { "prettierd", "prettier" } },

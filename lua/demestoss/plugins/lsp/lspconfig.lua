@@ -75,15 +75,33 @@ return {
       on_attach = on_attach,
       filetypes = { "html", "twig", "hbs" },
     })
-    require("typescript-tools").setup({
+    lspconfig["tsserver"].setup({
+      capabilities = capabilities,
       on_attach = on_attach,
       settings = {
-        code_lens = "references_only",
-        tsserver_file_preferences = {
-          includeInlayParameterNameHints = "all",
+        typescript = {
+          inlayHints = {
+            includeInlayParameterNameHints = "all",
+            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+            includeInlayFunctionParameterTypeHints = true,
+            includeInlayVariableTypeHints = true,
+            includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+            includeInlayPropertyDeclarationTypeHints = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+            includeInlayEnumMemberValueHints = true,
+          },
         },
-        tsserver_plugins = {
-          "@styled/typescript-styled-plugin",
+        javascript = {
+          inlayHints = {
+            includeInlayParameterNameHints = "all",
+            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+            includeInlayFunctionParameterTypeHints = true,
+            includeInlayVariableTypeHints = true,
+            includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+            includeInlayPropertyDeclarationTypeHints = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+            includeInlayEnumMemberValueHints = true,
+          },
         },
       },
     })
@@ -129,6 +147,11 @@ return {
     lspconfig["rust_analyzer"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      settings = {
+        ["rust-analyzer"] = {
+          allFeatures = true,
+        },
+      },
     })
     lspconfig["yamlls"].setup({
       capabilities = capabilities,
@@ -160,6 +183,7 @@ return {
 
     vim.diagnostic.config({
       severity_sort = true,
+      update_in_insert = true,
     })
 
     -- Create an augroup that is used for managing our formatting autocmds.
@@ -189,6 +213,10 @@ return {
 
         -- Only attach to clients that support document formatting
         if not client.server_capabilities.documentFormattingProvider then
+          return
+        end
+
+        if client.name == "tsserver" then
           return
         end
 
