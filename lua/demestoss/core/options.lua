@@ -2,6 +2,9 @@ vim.opt.termguicolors = true
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.o.shiftwidth = 2
+vim.o.tabstop = 2
+
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.o.mouse = "a"
@@ -34,9 +37,9 @@ vim.o.completeopt = "menuone,noselect"
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd("TextYankPost", {
-	callback = function()
-		vim.highlight.on_yank()
-	end,
-	group = highlight_group,
-	pattern = "*",
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = "*",
 })

@@ -57,6 +57,8 @@ return {
         "stylua",
         "codelldb",
         "beautysh",
+        "black",
+        "isort",
       },
     })
   end,
