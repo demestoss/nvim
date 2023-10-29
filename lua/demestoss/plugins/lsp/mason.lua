@@ -5,15 +5,12 @@ return {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
   config = function()
-    -- import mason
     local mason = require("mason")
-
-    -- import mason-lspconfig
     local mason_lspconfig = require("mason-lspconfig")
-
     local mason_tool_installer = require("mason-tool-installer")
 
-    -- enable mason and configure icons
+    local servers = require("demestoss.plugins.lsp.config.servers").servers
+
     mason.setup({
       ui = {
         icons = {
@@ -25,25 +22,8 @@ return {
     })
 
     mason_lspconfig.setup({
-      -- list of servers for mason to install
-      ensure_installed = {
-        "tsserver",
-        "html",
-        "volar",
-        "rust_analyzer",
-        "yamlls",
-        "eslint",
-        "cssls",
-        "tailwindcss",
-        "svelte",
-        "lua_ls",
-        "graphql",
-        "emmet_ls",
-        "pyright",
-        "bashls",
-      },
-      -- auto-install configured servers (with lspconfig)
-      automatic_installation = true, -- not the same as ensure_installed
+      ensure_installed = vim.tbl_keys(servers),
+      automatic_installation = true,
     })
 
     mason_tool_installer.setup({
