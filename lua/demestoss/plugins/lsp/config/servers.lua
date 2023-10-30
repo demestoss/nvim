@@ -4,11 +4,34 @@ local servers = {
   tailwindcss = {},
   volar = {},
   pyright = {},
-  html = { "html", "twig", "hbs" },
+  html = { filetypes = { "html", "twig", "hbs" } },
   svelte = {},
   gopls = {},
   yamlls = {},
   bashls = {},
+  ansiblels = {
+    filetypes = { "yaml.ansible" },
+    ansible = {
+      ansible = {
+        path = "ansible",
+        useFullyQualifiedCollectionNames = true,
+      },
+      ansibleLint = {
+        enabled = true,
+        path = "ansible-lint",
+      },
+      executionEnvironment = {
+        enabled = false,
+      },
+      python = {
+        interpreterPath = "python",
+      },
+      completion = {
+        provideRedirectModules = true,
+        provideModuleOptionAliases = true,
+      },
+    },
+  },
   rust_analyzer = {
     ["rust-analyzer"] = {
       allFeatures = true,

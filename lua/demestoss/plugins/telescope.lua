@@ -48,7 +48,7 @@ return {
     end, { desc = "[/] Fuzzily search in current buffer" })
 
     vim.keymap.set("n", "<C-p>", require("telescope.builtin").git_files, { desc = "Search [G]it [F]iles" })
-    vim.keymap.set("n", "<C-o>", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" })
+    vim.keymap.set("n", "<C-f>", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" })
 
     vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "[S]earch [F]iles" })
     vim.keymap.set("n", ";t", require("telescope.builtin").help_tags, { desc = "[S]earch [H]elp" })

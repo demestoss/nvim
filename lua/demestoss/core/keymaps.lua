@@ -33,7 +33,20 @@ vim.keymap.set("n", "<leader>-", ":nohls<CR>")
 vim.keymap.set("n", "<leader><CR>", ":so ~/.config/nvim/init.lua<CR>")
 vim.keymap.set("n", "<leader>X", ":!chmod +x %<CR>")
 
-vim.keymap.set("n", "<C-f>", ":silent !zellij action new-pane -f -c -- zellij-smart-sessionizer<CR>", { silent = true })
+vim.api.nvim_create_user_command("Cppath", function()
+  local path = vim.fn.expand("%")
+  vim.fn.setreg("+", path)
+  vim.notify('Copied "' .. path .. '" to the clipboard!')
+end, {})
+
+vim.keymap.set("n", "<leader>cp", ":Cppath<CR>", { desc = "[C]opy File [P]ath" })
+
+vim.keymap.set(
+  "n",
+  "<leader>o",
+  ":silent !zellij action new-pane -f -c -- zellij-smart-sessionizer<CR>",
+  { silent = true }
+)
 
 --[[ vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")

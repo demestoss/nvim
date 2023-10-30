@@ -39,6 +39,7 @@ return {
         "beautysh",
         "black",
         "isort",
+        "ansible-lint",
       },
     })
   end,
