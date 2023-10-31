@@ -3,13 +3,48 @@ return {
   lazy = true,
   event = "VeryLazy",
   config = function()
+    local util = require("conform.util")
     require("conform").setup({
+      formatters = {
+        prettier = {
+          cwd = util.root_file({
+            -- https://prettier.io/docs/en/configuration.html
+            ".prettierrc",
+            ".prettierrc.json",
+            ".prettierrc.yml",
+            ".prettierrc.yaml",
+            ".prettierrc.json5",
+            ".prettierrc.js",
+            ".prettierrc.cjs",
+            ".prettierrc.toml",
+            "prettier.config.js",
+            "prettier.config.cjs",
+          }),
+          require_cwd = true,
+        },
+        prettierd = {
+          cwd = util.root_file({
+            -- https://prettier.io/docs/en/configuration.html
+            ".prettierrc",
+            ".prettierrc.json",
+            ".prettierrc.yml",
+            ".prettierrc.yaml",
+            ".prettierrc.json5",
+            ".prettierrc.js",
+            ".prettierrc.cjs",
+            ".prettierrc.toml",
+            "prettier.config.js",
+            "prettier.config.cjs",
+          }),
+          require_cwd = true,
+        },
+      },
       formatters_by_ft = {
         lua = { "stylua" },
         python = { "isort", "black" },
         javascript = { { "prettierd", "prettier" } },
         javascriptreact = { { "prettierd", "prettier" } },
-        typescript = { { "prettier" } },
+        typescript = { { "prettierd", "prettier" } },
         vue = { { "prettierd", "prettier" } },
         svelte = { { "prettierd", "prettier" } },
         typescriptreact = { { "prettierd", "prettier" } },

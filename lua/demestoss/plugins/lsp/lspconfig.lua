@@ -22,7 +22,7 @@ return {
 
     vim.diagnostic.config({
       severity_sort = true,
-      update_in_insert = true,
+      -- update_in_insert = true,
     })
 
     -- Create an augroup that is used for managing our formatting autocmds.
