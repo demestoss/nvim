@@ -8,9 +8,11 @@ vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
-vim.cmd([[nnoremap <leader>e :Neotree toggle reveal<CR>]])
-vim.cmd([[nnoremap <leader>x :Neotree toggle current reveal<CR>]])
-vim.keymap.set("n", "<leader><F5>", vim.cmd.UndotreeToggle)
+vim.keymap.set("n", "<leader>e", ":Neotree toggle reveal<CR>", { silent = true })
+vim.keymap.set("n", "<leader>x", ":Neotree toggle current reveal<CR>", { silent = true })
+
+vim.keymap.set("n", "U", "<C-r>")
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
 vim.keymap.set("v", "<leader>p", '"_dP')
 vim.keymap.set("v", "<leader>y", '"+y')
@@ -48,7 +50,7 @@ vim.keymap.set(
   { silent = true }
 )
 
---[[ vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz") ]]
+vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")

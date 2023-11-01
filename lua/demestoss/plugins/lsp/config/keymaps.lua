@@ -6,7 +6,10 @@ M.on_attach = function(client, bufnr)
   opts.buffer = bufnr
 
   opts.desc = "[G]oto LSP [R]eferences"
-  vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
+  vim.keymap.set("n", "<leader>gr", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
+
+  opts.desc = "[G]oto LSP [R]eferences"
+  vim.keymap.set("n", "gr", vim.lsp.buf.references, opts) -- show definition, references
 
   opts.desc = "Go to declaration"
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
@@ -40,9 +43,6 @@ M.on_attach = function(client, bufnr)
 
   opts.desc = "Show buffer diagnostics"
   vim.keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
-
-  opts.desc = "Restart LSP"
-  vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 
   opts.desc = "Signature Documentation"
   vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)

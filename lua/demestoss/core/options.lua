@@ -5,6 +5,8 @@ vim.g.maplocalleader = " "
 vim.o.shiftwidth = 2
 vim.o.tabstop = 2
 
+vim.o.hlsearch = false
+
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.o.mouse = "a"

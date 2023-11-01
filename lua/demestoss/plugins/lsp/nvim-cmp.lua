@@ -8,9 +8,6 @@ return {
 
     -- Adds LSP completion capabilities
     "hrsh7th/cmp-nvim-lsp",
-
-    -- Adds a number of user-friendly snippets
-    "rafamadriz/friendly-snippets",
     "onsails/lspkind-nvim",
 
     "hrsh7th/cmp-buffer", -- source for text in buffer
@@ -25,7 +22,7 @@ return {
 
     cmp.setup({
       completion = {
-        completeopt = "menu,menuone,preview,noselect",
+        completeopt = "menu,menuone,preview,noinsert",
       },
       snippet = {
         expand = function(args)
@@ -43,31 +40,14 @@ return {
           behavior = cmp.ConfirmBehavior.Replace,
           select = true,
         }),
-        -- ["<Tab>"] = cmp.mapping(function(fallback)
-        --   if cmp.visible() then
-        --     cmp.select_next_item()
-        --   elseif luasnip.expand_or_locally_jumpable() then
-        --     luasnip.expand_or_jump()
-        --   else
-        --     fallback()
-        --   end
-        -- end, { "i", "s" }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.select_prev_item()
-          elseif luasnip.locally_jumpable(-1) then
-            luasnip.jump(-1)
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
       }),
-      sources = {
+      sources = cmp.config.sources({
         { name = "nvim_lsp" },
-        -- { name = "luasnip" },
+        { name = "luasnip" },
+      }, {
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
-      },
+      }),
       formatting = {
         format = lspkind.cmp_format({ maxwidth = 50, mode = "symbol_text" }),
       },

@@ -1,11 +1,8 @@
 local servers = {
   eslint = {},
   cssls = {},
-  tailwindcss = {},
-  volar = {},
   pyright = {},
   html = { filetypes = { "html", "twig", "hbs" } },
-  svelte = {},
   gopls = {},
   yamlls = {},
   bashls = {},
@@ -32,17 +29,7 @@ local servers = {
       },
     },
   },
-  rust_analyzer = {
-    ["rust-analyzer"] = {
-      allFeatures = true,
-      diagnostics = {
-        experimental = true,
-      },
-    },
-    diagnostics = {
-      experimental = true,
-    },
-  },
+  rust_analyzer = {},
   tsserver = {
     typescript = {
       inlayHints = {
