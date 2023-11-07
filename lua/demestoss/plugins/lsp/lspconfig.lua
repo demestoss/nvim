@@ -11,7 +11,7 @@ return {
   },
   config = function()
     require("neodev").setup()
-    require("demestoss.plugins.lsp.config.servers").setup()
+    require("demestoss.config.lsp.servers").setup()
 
     -- local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
     local signs = { Error = "E", Warn = "W", Hint = "H", Info = "I" }

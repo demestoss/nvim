@@ -9,7 +9,7 @@ return {
     local mason_lspconfig = require("mason-lspconfig")
     local mason_tool_installer = require("mason-tool-installer")
 
-    local servers = require("demestoss.plugins.lsp.config.servers").servers
+    local servers = require("demestoss.config.lsp.servers").servers
 
     mason.setup({
       ui = {

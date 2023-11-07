@@ -5,6 +5,9 @@ vim.g.maplocalleader = " "
 vim.o.shiftwidth = 2
 vim.o.tabstop = 2
 
+-- Mouse
+vim.o.mouse = ""
+
 vim.o.hlsearch = false
 
 vim.wo.number = true

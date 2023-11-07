@@ -71,7 +71,7 @@ M.setup = function()
   local cmp_nvim_lsp = require("cmp_nvim_lsp")
   local lspconfig = require("lspconfig")
 
-  local on_attach = require("demestoss.plugins.lsp.config.keymaps").on_attach
+  local on_attach = require("demestoss.config.lsp.keymaps").on_attach
   local capabilities = cmp_nvim_lsp.default_capabilities()
 
   for server_name in pairs(servers) do
