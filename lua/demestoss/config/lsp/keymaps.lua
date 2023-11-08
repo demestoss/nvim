@@ -9,7 +9,10 @@ M.on_attach = function(client, bufnr)
   vim.keymap.set("n", "<leader>gr", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
   opts.desc = "[G]oto LSP [R]eferences"
-  vim.keymap.set("n", "gr", vim.lsp.buf.references, opts) -- show definition, references
+  vim.keymap.set("n", "gr", function()
+    require("trouble").toggle("lsp_references")
+  end, opts)
+  -- vim.keymap.set("n", "gr", vim.lsp.buf.references, opts) -- show definition, references
 
   opts.desc = "Go to declaration"
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
