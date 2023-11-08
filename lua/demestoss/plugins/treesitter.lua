@@ -32,6 +32,7 @@ return {
         "gitignore",
         "svelte",
         "vue",
+        "kdl",
       },
 
       -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
