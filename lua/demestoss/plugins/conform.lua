@@ -58,7 +58,6 @@ return {
         ["*"] = { "trim_whitespace" },
       },
       format_on_save = {
-        timeout_ms = 50,
         async = true,
         lsp_fallback = true,
       },

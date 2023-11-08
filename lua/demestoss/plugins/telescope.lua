@@ -30,6 +30,9 @@ return {
             ["q"] = actions.close,
           },
         },
+        layout_config = {
+          prompt_position = "top",
+        },
       },
     })
 
