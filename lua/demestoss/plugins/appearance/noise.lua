@@ -24,8 +24,12 @@ return {
         inc_rename = false, -- enables an input dialog for inc-rename.nvim
         lsp_doc_border = false, -- add a border to hover docs and signature help
       },
-      notify = {
-        top_down = true,
+      views = {
+        notify = {
+          top_down = true,
+          replace = true,
+          position = "bottom",
+        },
       },
     })
   end,
