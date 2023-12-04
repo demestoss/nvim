@@ -3,7 +3,7 @@ require("demestoss.core.globals")
 return {
   "folke/noice.nvim",
   event = "VeryLazy",
-  enable = Is_Enabled("noice.nvim"),
+  enabled = Is_Enabled("noice.nvim"),
   opts = {},
   dependencies = {
     "MunifTanjim/nui.nvim",
@@ -13,8 +13,8 @@ return {
       lsp = {
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
         override = {
-          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-          ["vim.lsp.util.stylize_markdown"] = true,
+          -- ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+          -- ["vim.lsp.util.stylize_markdown"] = true,
           ["cmp.entry.get_documentation"] = true,
         },
       },

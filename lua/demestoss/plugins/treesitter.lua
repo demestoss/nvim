@@ -5,6 +5,7 @@ return {
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
     "windwp/nvim-ts-autotag",
+    "JoosepAlviste/nvim-ts-context-commentstring",
   },
   build = ":TSUpdate",
   config = function()
@@ -60,9 +61,12 @@ return {
           node_decremental = "<M-space>",
         },
       },
-      context_commentstring = {
-        enable = true,
-        enable_autocmd = false,
+    })
+
+    require("ts_context_commentstring").setup({
+      enable_autocmd = false,
+      languages = {
+        typescript = "// %s",
       },
     })
   end,
