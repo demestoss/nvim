@@ -12,10 +12,12 @@ vim.o.hlsearch = false
 
 vim.wo.number = true
 vim.wo.relativenumber = true
+vim.o.cursorline = true
 vim.o.mouse = "a"
 vim.o.clipboard = "unnamedplus"
-vim.o.scrolloff = 16
+vim.o.scrolloff = 8
 vim.o.showmode = false
+vim.o.langmenu = "en_US.UTF-8"
 
 vim.o.swapfile = false
 vim.o.backup = false
