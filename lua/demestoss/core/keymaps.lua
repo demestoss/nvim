@@ -43,12 +43,7 @@ end, {})
 
 vim.keymap.set("n", "<leader>cp", ":Cppath<CR>", { desc = "[C]opy File [P]ath" })
 
-vim.keymap.set(
-  "n",
-  "<leader>o",
-  ":silent !zellij action new-pane -f -c -- zellij-smart-sessionizer<CR>",
-  { silent = true }
-)
+vim.keymap.set("n", "<leader>o", ":silent !tmux neww tt<CR>", { silent = true })
 
 vim.keymap.set("n", "<C-j>", "<cmd>wincmd j<CR>", { silent = true })
 vim.keymap.set("n", "<C-l>", "<cmd>wincmd l<CR>", { silent = true })
