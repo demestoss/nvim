@@ -1,5 +1,8 @@
+require("demestoss.core.globals")
+
 return {
   "catppuccin/nvim",
+  enabled = Is_Enabled("catppuccin"),
   dependencies = {
     "freddiehaddad/feline.nvim",
     "nvim-tree/nvim-web-devicons",

@@ -5,7 +5,7 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
     -- LSP Progress bar
-    { "j-hui/fidget.nvim", tag = "legacy", opts = {} },
+    -- { "j-hui/fidget.nvim", tag = "legacy", opts = {} },
     -- Additional lua configuration, makes nvim stuff amazing!
     "folke/neodev.nvim",
   },

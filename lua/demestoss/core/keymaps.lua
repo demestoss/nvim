@@ -50,7 +50,11 @@ vim.keymap.set(
   { silent = true }
 )
 
-vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lprev<CR>zz")
+vim.keymap.set("n", "<C-j>", "<cmd>wincmd j<CR>", { silent = true })
+vim.keymap.set("n", "<C-l>", "<cmd>wincmd l<CR>", { silent = true })
+vim.keymap.set("n", "<C-h>", "<cmd>wincmd h<CR>", { silent = true })
+vim.keymap.set("n", "<C-k>", "<cmd>wincmd k<CR>", { silent = true })
+-- vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
+-- vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
+-- vim.keymap.set("n", "<leader>j", "<cmd>lnext<CR>zz")
+-- vim.keymap.set("n", "<leader>k", "<cmd>lprev<CR>zz")

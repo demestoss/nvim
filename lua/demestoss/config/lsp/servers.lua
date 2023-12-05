@@ -3,7 +3,6 @@ local servers = {
   cssls = {},
   pyright = {},
   html = { filetypes = { "html", "twig", "hbs" } },
-  gopls = {},
   yamlls = {},
   bashls = {},
   ansiblels = {

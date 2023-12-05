@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   { import = "demestoss.plugins" },
-  { import = "demestoss.plugins.rust" },
+  -- { import = "demestoss.plugins.rust" },
   { import = "demestoss.plugins.appearance" },
   { import = "demestoss.plugins.git" },
   { import = "demestoss.plugins.lsp" },
