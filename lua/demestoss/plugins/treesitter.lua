@@ -8,6 +8,17 @@ return {
     "JoosepAlviste/nvim-ts-context-commentstring",
   },
   build = ":TSUpdate",
+  opts = {
+    textobjects = {
+      move = {
+        enable = true,
+        goto_next_start = { ["]f"] = "@function.outer" },
+        goto_next_end = { ["]F"] = "@function.outer" },
+        goto_previous_start = { ["[f"] = "@function.outer" },
+        goto_previous_end = { ["[F"] = "@function.outer" },
+      },
+    },
+  },
   config = function()
     require("nvim-treesitter.configs").setup({
       -- Add languages to be installed here that you want installed for treesitter

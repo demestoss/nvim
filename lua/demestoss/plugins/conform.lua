@@ -47,7 +47,7 @@ return {
         typescript = { { "prettierd", "prettier" } },
         vue = { { "prettierd", "prettier" } },
         svelte = { { "prettierd", "prettier" } },
-        typescriptreact = { { "prettierd", "prettier" } },
+        typescriptreact = { { "prettier", "prettierd" } },
         css = { "prettier" },
         html = { "prettier" },
         json = { "prettier" },

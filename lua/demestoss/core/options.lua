@@ -9,13 +9,16 @@ vim.o.tabstop = 2
 vim.o.mouse = ""
 
 vim.o.hlsearch = false
+vim.o.showcmd = false
 
 vim.wo.number = true
 vim.wo.relativenumber = true
-vim.o.cursorline = true
+vim.o.cursorline = false
+vim.o.lazyredraw = true
+
 vim.o.mouse = "a"
 vim.o.clipboard = "unnamedplus"
-vim.o.scrolloff = 8
+vim.o.scrolloff = 16
 vim.o.showmode = false
 vim.o.langmenu = "en_US.UTF-8"
 
@@ -26,7 +29,6 @@ vim.o.breakindent = true
 vim.o.undofile = true
 
 vim.o.incsearch = true
-vim.o.updatetime = 50
 
 -- vim.o.colorcolumn = "80"
 
@@ -35,7 +37,7 @@ vim.o.smartcase = true
 vim.wo.signcolumn = "yes"
 
 -- Decrease update time
-vim.o.updatetime = 250
+vim.o.updatetime = 50
 vim.o.timeoutlen = 300
 
 vim.o.completeopt = "menuone,noselect"

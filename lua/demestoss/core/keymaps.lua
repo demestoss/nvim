@@ -45,6 +45,9 @@ vim.keymap.set("n", "<leader>cp", ":Cppath<CR>", { desc = "[C]opy File [P]ath" }
 
 vim.keymap.set("n", "<leader>o", ":silent !tmux neww tt<CR>", { silent = true })
 
+vim.keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
+vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
+
 vim.keymap.set("n", "<C-j>", "<cmd>wincmd j<CR>", { silent = true })
 vim.keymap.set("n", "<C-l>", "<cmd>wincmd l<CR>", { silent = true })
 vim.keymap.set("n", "<C-h>", "<cmd>wincmd h<CR>", { silent = true })

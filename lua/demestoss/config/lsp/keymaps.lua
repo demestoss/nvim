@@ -6,10 +6,10 @@ M.on_attach = function(client, bufnr)
   opts.buffer = bufnr
 
   opts.desc = "[G]oto LSP [R]eferences"
-  vim.keymap.set("n", "<leader>gr", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
+  vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
   opts.desc = "[G]oto LSP [R]eferences"
-  vim.keymap.set("n", "gr", function()
+  vim.keymap.set("n", "<leader>gr", function()
     require("trouble").toggle("lsp_references")
   end, opts)
   -- vim.keymap.set("n", "gr", vim.lsp.buf.references, opts) -- show definition, references
@@ -35,11 +35,19 @@ M.on_attach = function(client, bufnr)
   opts.desc = "Hover documentation"
   vim.keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
-  opts.desc = "Go to previous diagnostic"
-  vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
-
-  opts.desc = "Go to next diagnostic"
-  vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
+  local diagnostic_goto = function(next, severity)
+    local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+    severity = severity and vim.diagnostic.severity[severity] or nil
+    return function()
+      go({ severity = severity })
+    end
+  end
+  vim.keymap.set("n", "]d", diagnostic_goto(true), { desc = "Go to Next Diagnostic" })
+  vim.keymap.set("n", "[d", diagnostic_goto(false), { desc = "Go to Prev Diagnostic" })
+  vim.keymap.set("n", "]e", diagnostic_goto(true, "ERROR"), { desc = "Go to Next Error" })
+  vim.keymap.set("n", "[e", diagnostic_goto(false, "ERROR"), { desc = "Go to Prev Error" })
+  vim.keymap.set("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Go to Next Warning" })
+  vim.keymap.set("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Go to Prev Warning" })
 
   opts.desc = "Show line diagnostics"
   vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
