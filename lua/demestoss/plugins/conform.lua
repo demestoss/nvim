@@ -13,7 +13,7 @@ return {
             ".prettierrc.json",
             ".prettierrc.yml",
             ".prettierrc.yaml",
-            ".prettierrc.json5",
+            ".prettierrc.json",
             ".prettierrc.js",
             ".prettierrc.cjs",
             ".prettierrc.toml",
@@ -90,7 +90,7 @@ return {
     local opts = {}
 
     opts.desc = "Conform [F]ormat [B]uffer"
-    vim.keymap.set("n", "<leader>fb", ":Format<CR>", opts)
+    vim.keymap.set("n", "<leader>f", ":Format<CR>", opts)
 
     -- :ConformInfo
     vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"

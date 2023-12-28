@@ -7,11 +7,9 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   config = function()
-    local kanagawa = require("demestoss.config.lualine.kanagawa")
-
     require("lualine").setup({
       options = {
-        theme = Is_Enabled("kanagawa.nvim") and kanagawa or "auto",
+        theme = Is_Enabled("kanagawa.nvim") and require("demestoss.config.lualine.kanagawa") or "tokyonight",
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
       },

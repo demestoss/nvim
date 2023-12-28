@@ -1,10 +1,12 @@
+require("demestoss.core.globals")
+
 return {
   "stevearc/dressing.nvim",
   event = "VeryLazy",
+  enabled = Is_Enabled("dressing"),
   config = function()
     require("dressing").setup({
       input = {
-        border = "rounded",
         mappings = {
           n = {
             ["<Esc>"] = "Close",

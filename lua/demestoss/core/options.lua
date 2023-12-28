@@ -34,13 +34,17 @@ vim.o.incsearch = true
 
 vim.o.ignorecase = true
 vim.o.smartcase = true
-vim.wo.signcolumn = "yes"
+vim.cmd([[
+set signcolumn=yes
+" autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
+]])
 
 -- Decrease update time
 vim.o.updatetime = 50
 vim.o.timeoutlen = 300
 
-vim.o.completeopt = "menuone,noselect"
+vim.opt.completeopt = { "menuone", "noselect", "noinsert" }
+vim.opt.shortmess = vim.opt.shortmess + { c = true }
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`

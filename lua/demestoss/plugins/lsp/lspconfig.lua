@@ -13,10 +13,11 @@ return {
     require("neodev").setup()
     require("demestoss.config.lsp.servers").setup()
 
-    -- local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-    local signs = { Error = "E", Warn = "W", Hint = "H", Info = "I" }
+    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+    -- local signs = { Error = "E", Warn = "W", Hint = "H", Info = "I" }
     for type, icon in pairs(signs) do
       local hl = "DiagnosticSign" .. type
+
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
@@ -79,12 +80,5 @@ return {
         })
       end,
     })
-
-    -- Inlay hints
-    if vim.lsp.inlay_hint then
-      vim.keymap.set("n", "<leader>hu", function()
-        vim.lsp.inlay_hint(0, nil)
-      end, { desc = "Toggle Inlay Hints" })
-    end
   end,
 }

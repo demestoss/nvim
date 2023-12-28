@@ -20,6 +20,9 @@ return {
     luasnip.config.setup({})
     local lspkind = require("lspkind")
 
+    local ELLIPSIS_CHAR = "…"
+    local MAX_LABEL_WIDTH = 20
+
     cmp.setup({
       completion = {
         completeopt = "menu,menuone,preview,noinsert",
@@ -42,14 +45,30 @@ return {
         }),
       }),
       sources = cmp.config.sources({
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
+        { name = "nvim_lsp", keyword_length = 3 }, -- from language server
+        { name = "nvim_lsp_signature_help" }, -- display function signatures with current parameter emphasized
+        { name = "nvim_lua", keyword_length = 2 }, -- complete neovim's Lua runtime API such vim.lsp.*
       }, {
         -- { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
       }),
       formatting = {
-        format = lspkind.cmp_format({ maxwidth = 50, mode = "symbol_text" }),
+        fields = { "abbr", "menu", "kind" },
+        expandable_indicator = true,
+        -- format = lspkind.cmp_format({
+        --   maxwidth = 50,
+        --   mode = "symbol",
+        --   ellipsis_char = "…",
+        format = function(entry, item)
+          local menu_icon = {
+            nvim_lsp = "λ",
+            vsnip = "⋗",
+            buffer = "Ω",
+            path = "🖫",
+          }
+          item.menu = menu_icon[entry.source.name]
+          return item
+        end,
       },
     })
 

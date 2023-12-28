@@ -1,6 +1,9 @@
+require("demestoss.core.globals")
+
 return {
   "folke/trouble.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
+  enabled = Is_Enabled("trouble.nvim"),
   opts = {
     -- your configuration comes here
     -- or leave it empty to use the default settings

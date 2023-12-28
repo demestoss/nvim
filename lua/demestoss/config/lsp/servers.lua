@@ -1,3 +1,5 @@
+require("demestoss.core.globals")
+
 local servers = {
   eslint = {},
   cssls = {},
@@ -28,8 +30,14 @@ local servers = {
       },
     },
   },
-  rust_analyzer = {},
+  rust_analyzer = {
+    isDisabledCapability = Is_Enabled("rust-tools"),
+    checkOnSave = {
+      command = "clippy",
+    },
+  },
   tsserver = {
+    isDisabledCapability = Is_Enabled("ts-tools"),
     typescript = {
       inlayHints = {
         includeInlayParameterNameHints = "all",
@@ -74,12 +82,14 @@ M.setup = function()
   local capabilities = cmp_nvim_lsp.default_capabilities()
 
   for server_name in pairs(servers) do
-    lspconfig[server_name].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
-    })
+    if not servers[server_name].isDisabledCapability then
+      lspconfig[server_name].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = servers[server_name],
+        filetypes = (servers[server_name] or {}).filetypes,
+      })
+    end
   end
 end
 
