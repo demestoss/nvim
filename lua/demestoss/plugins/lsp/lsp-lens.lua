@@ -13,9 +13,6 @@ return {
           return "imps: " .. count
         end,
       },
-      ignore_filetype = {
-        "prisma",
-      },
     })
   end,
 }

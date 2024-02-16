@@ -8,12 +8,6 @@ M.on_attach = function(client, bufnr)
   opts.desc = "[G]oto LSP [R]eferences"
   vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
-  -- opts.desc = "[G]oto LSP [R]eferences"
-  -- vim.keymap.set("n", "<leader>gr", function()
-  --   require("trouble").toggle("lsp_references")
-  -- end, opts)
-  -- vim.keymap.set("n", "gr", vim.lsp.buf.references, opts) -- show definition, references
-
   opts.desc = "Go to declaration"
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
 
@@ -63,26 +57,6 @@ M.on_attach = function(client, bufnr)
 
   opts.desc = "[W]orkspace [S]ymbols"
   vim.keymap.set("n", "<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, opts)
-
-  -- Inlay hints
-  vim.g.inlay_hints_visible = false
-  local function toggle_inlay_hints()
-    if vim.g.inlay_hints_visible then
-      vim.g.inlay_hints_visible = false
-      vim.lsp.inlay_hint(bufnr, false)
-    else
-      if client.server_capabilities.inlayHintProvider then
-        vim.g.inlay_hints_visible = true
-        vim.lsp.inlay_hint(bufnr, true)
-      else
-        print("no inlay hints available")
-      end
-    end
-  end
-
-  vim.keymap.set("n", "<leader>hu", function()
-    toggle_inlay_hints()
-  end, { desc = "Toggle Inlay Hints" })
 end
 
 return M

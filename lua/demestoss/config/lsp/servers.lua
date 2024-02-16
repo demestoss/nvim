@@ -3,7 +3,6 @@ require("demestoss.core.globals")
 local servers = {
   eslint = {},
   cssls = {},
-  pyright = {},
   html = { filetypes = { "html", "twig", "hbs" } },
   yamlls = {},
   bashls = {},
@@ -35,34 +34,13 @@ local servers = {
     checkOnSave = {
       command = "clippy",
     },
-  },
-  tsserver = {
-    isDisabledCapability = Is_Enabled("ts-tools"),
-    typescript = {
-      inlayHints = {
-        includeInlayParameterNameHints = "all",
-        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayVariableTypeHints = true,
-        includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayEnumMemberValueHints = true,
-      },
-    },
-    javascript = {
-      inlayHints = {
-        includeInlayParameterNameHints = "all",
-        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-        includeInlayFunctionParameterTypeHints = true,
-        includeInlayVariableTypeHints = true,
-        includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
-        includeInlayEnumMemberValueHints = true,
+    diagnostics = {
+      experimental = {
+        enable = true,
       },
     },
   },
+  tsserver = {},
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },

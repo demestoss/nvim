@@ -55,25 +55,28 @@ return {
         yaml = { "yamlfix", "yamlfmt" },
         tsx = { { "prettierd", "prettier" } },
         sh = { "beautysh" },
-        ["*"] = { "trim_whitespace" },
+        rust = { "rustfmt" },
+        ["*"] = { "codespell" },
+        ["_"] = { "codespell" },
       },
-      format_on_save = {
-        async = true,
-        lsp_fallback = true,
-      },
-      format_after_save = {
-        lsp_fallback = true,
-      },
+      format_on_save = function(bufnr)
+        if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+          return
+        end
+        return { lsp_fallback = true }
+      end,
+      format_after_save = function(bufnr)
+        if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+          return
+        end
+        return { lsp_fallback = true }
+      end,
       log_level = vim.log.levels.ERROR,
       notify_on_error = true,
     })
 
-    vim.api.nvim_create_autocmd("BufWritePre", {
-      pattern = "*",
-      callback = function(args)
-        require("conform").format({ bufnr = args.buf })
-      end,
-    })
+    -- Disable format on save
+    vim.g.disable_autoformat = true
 
     vim.api.nvim_create_user_command("Format", function(args)
       local range = nil
@@ -90,7 +93,7 @@ return {
     local opts = {}
 
     opts.desc = "Conform [F]ormat [B]uffer"
-    vim.keymap.set("n", "<leader>f", ":Format<CR>", opts)
+    vim.keymap.set("n", "<leader>fb", ":Format<CR>", opts)
 
     -- :ConformInfo
     vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
