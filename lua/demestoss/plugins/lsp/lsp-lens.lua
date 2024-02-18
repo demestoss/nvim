@@ -1,5 +1,6 @@
 return {
   "VidocqH/lsp-lens.nvim",
+  event = { "VeryLazy", "BufReadPost" },
   config = function()
     require("lsp-lens").setup({
       enable = true,

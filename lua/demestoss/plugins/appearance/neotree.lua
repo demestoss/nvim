@@ -3,6 +3,7 @@ require("demestoss.core.globals")
 return {
   "nvim-neo-tree/neo-tree.nvim",
   enabled = Is_Enabled("neo-tree.nvim"),
+  event = "VeryLazy",
   dependencies = {
     "nvim-lua/plenary.nvim",
     -- "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended

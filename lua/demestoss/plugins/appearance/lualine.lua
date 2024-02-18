@@ -1,8 +1,5 @@
-require("demestoss.core.globals")
-
 return {
   "nvim-lualine/lualine.nvim",
-  enabled = Is_Enabled("lualine.nvim"),
   dependencies = {
     "nvim-tree/nvim-web-devicons",
     'AndreM222/copilot-lualine',

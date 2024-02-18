@@ -1,6 +1,7 @@
 return {
   "lukas-reineke/indent-blankline.nvim", -- Add indentation guides even on blank lines
   main = "ibl",
+  event = { "BufReadPost", "BufNewFile" },
   opts = {},
   config = function()
     local highlight = {

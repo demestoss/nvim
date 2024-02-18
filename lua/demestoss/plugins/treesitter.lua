@@ -1,11 +1,9 @@
 return {
   -- Highlight, edit, and navigate code
   "nvim-treesitter/nvim-treesitter",
-  event = { "BufReadPre", "BufNewFile" },
+  event = { "BufReadPost", "BufNewFile" },
   dependencies = {
-    "nvim-treesitter/nvim-treesitter-textobjects",
     "windwp/nvim-ts-autotag",
-    "JoosepAlviste/nvim-ts-context-commentstring",
   },
   build = ":TSUpdate",
   opts = {
@@ -71,13 +69,6 @@ return {
           scope_incremental = "<c-s>",
           node_decremental = "<M-space>",
         },
-      },
-    })
-
-    require("ts_context_commentstring").setup({
-      enable_autocmd = false,
-      languages = {
-        typescript = "// %s",
       },
     })
   end,

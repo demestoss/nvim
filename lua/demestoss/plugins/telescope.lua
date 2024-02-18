@@ -1,6 +1,7 @@
 return {
   "nvim-telescope/telescope.nvim",
   branch = "0.1.x",
+  event = "VeryLazy",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope-frecency.nvim",
@@ -93,6 +94,11 @@ return {
           },
         },
       },
+      extensions = {
+        frecency = {
+          show_scores = true,
+        },
+      },
     })
 
     pcall(require("telescope").load_extension, "frecency")
@@ -116,7 +122,7 @@ return {
     vim.keymap.set("n", "<C-f>", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" })
     vim.keymap.set("n", "<leader>fg", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" })
 
-    vim.keymap.set("n", "<leader>fr", "<Cmd>Telescope frecency<CR>")
+    vim.keymap.set("n", "<leader>fr", "<Cmd>Telescope frecency previewer=false<CR>")
 
     vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "[S]earch [F]iles" })
     vim.keymap.set("n", "<leader>sw", require("telescope.builtin").grep_string, { desc = "[S]earch current [W]ord" })
