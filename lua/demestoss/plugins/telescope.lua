@@ -3,6 +3,7 @@ return {
   branch = "0.1.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
+    "nvim-telescope/telescope-frecency.nvim",
     {
       "nvim-telescope/telescope-fzf-native.nvim",
       build = "make",
@@ -94,9 +95,16 @@ return {
       },
     })
 
+    pcall(require("telescope").load_extension, "frecency")
     pcall(require("telescope").load_extension, "fzf")
 
     vim.keymap.set("n", "<C-e>", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
+    vim.keymap.set(
+      "n",
+      "<leader>fh",
+      require("telescope.builtin").oldfiles,
+      { desc = "[?] Find recently opened files" }
+    )
     vim.keymap.set("n", "<leader><space>", require("telescope.builtin").buffers, { desc = "[ ] Find existing buffers" })
     vim.keymap.set("n", "<leader>/", function()
       require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
@@ -106,6 +114,9 @@ return {
 
     vim.keymap.set("n", "<C-p>", require("telescope.builtin").git_files, { desc = "Search [G]it [F]iles" })
     vim.keymap.set("n", "<C-f>", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" })
+    vim.keymap.set("n", "<leader>fg", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" })
+
+    vim.keymap.set("n", "<leader>fr", "<Cmd>Telescope frecency<CR>")
 
     vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "[S]earch [F]iles" })
     vim.keymap.set("n", "<leader>sw", require("telescope.builtin").grep_string, { desc = "[S]earch current [W]ord" })

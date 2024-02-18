@@ -49,8 +49,8 @@ return {
       },
     })
 
-    -- local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-    local signs = { Error = ">>", Warn = ">>", Hint = "H", Info = "I" }
+    local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+    -- local signs = { Error = ">>", Warn = ">>", Hint = "H", Info = "I" }
     for type, icon in pairs(signs) do
       local hl = "DiagnosticSign" .. type
 
