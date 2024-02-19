@@ -30,7 +30,7 @@ local servers = {
     },
   },
   rust_analyzer = {
-    isDisabledCapability = Is_Enabled("rust-tools"),
+    -- isDisabledCapability = Is_Enabled("rust-tools"),
     checkOnSave = {
       command = "clippy",
     },
@@ -41,6 +41,7 @@ local servers = {
     },
   },
   tsserver = {},
+  svelte = {},
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -60,14 +61,12 @@ M.setup = function()
   local capabilities = cmp_nvim_lsp.default_capabilities()
 
   for server_name in pairs(servers) do
-    if not servers[server_name].isDisabledCapability then
-      lspconfig[server_name].setup({
-        capabilities = capabilities,
-        on_attach = on_attach,
-        settings = servers[server_name],
-        filetypes = (servers[server_name] or {}).filetypes,
-      })
-    end
+    lspconfig[server_name].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = servers[server_name],
+      filetypes = (servers[server_name] or {}).filetypes,
+    })
   end
 end
 

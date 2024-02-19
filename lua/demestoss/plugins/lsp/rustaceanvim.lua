@@ -2,7 +2,7 @@ require("demestoss.core.globals")
 
 return {
   "mrcjkb/rustaceanvim",
-  enabled = Is_Enabled("rust-tools"),
+  enabled = false,
   version = "^3", -- Recommended
   ft = { "rust" },
   config = function()
