@@ -2,9 +2,6 @@ return {
   -- Highlight, edit, and navigate code
   "nvim-treesitter/nvim-treesitter",
   event = { "BufReadPost", "BufNewFile" },
-  dependencies = {
-    "windwp/nvim-ts-autotag",
-  },
   build = ":TSUpdate",
   opts = {
     textobjects = {
@@ -47,11 +44,6 @@ return {
 
       -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
       auto_install = true,
-      autotag = {
-        enable = true,
-        enable_rename = true,
-        enable_close_on_slash = false,
-      },
 
       ignore_install = { "javascript" },
 
