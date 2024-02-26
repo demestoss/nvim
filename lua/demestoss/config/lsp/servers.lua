@@ -42,6 +42,10 @@ local servers = {
   },
   tsserver = {},
   svelte = {},
+  unocss = {},
+  -- volar = {
+  --   filetypes = { "vue", "typescript", "javascript" },
+  -- },
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
