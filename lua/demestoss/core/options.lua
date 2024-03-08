@@ -13,8 +13,10 @@ vim.o.showcmd = false
 
 vim.wo.number = true
 vim.wo.relativenumber = true
-vim.o.cursorline = false
+vim.o.cursorline = true
 vim.o.lazyredraw = true
+
+vim.o.guicursor = ""
 
 vim.o.mouse = "a"
 vim.o.clipboard = "unnamedplus"

@@ -42,7 +42,8 @@ local servers = {
   },
   tsserver = {},
   svelte = {},
-  unocss = {},
+  -- unocss = {},
+  gopls = {},
   -- volar = {
   --   filetypes = { "vue", "typescript", "javascript" },
   -- },
