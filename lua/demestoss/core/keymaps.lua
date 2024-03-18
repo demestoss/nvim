@@ -11,16 +11,7 @@ vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 if Is_Enabled("neo-tree.nvim") then
-  vim.keymap.set("n", "<leader>e", ":Neotree toggle reveal<CR>", { silent = true })
   vim.keymap.set("n", "<leader>x", ":Neotree toggle current reveal<CR>", { silent = true })
-elseif Is_Enabled("telescope-file-browser") then
-  vim.api.nvim_set_keymap("n", "<space>e", ":Telescope file_browser<CR>", { noremap = true, silent = true })
-  vim.api.nvim_set_keymap(
-    "n",
-    "<space>x",
-    ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
-    { noremap = true, silent = true }
-  )
 end
 
 vim.keymap.set("n", "U", "<C-r>")

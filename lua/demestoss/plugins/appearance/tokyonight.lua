@@ -6,6 +6,7 @@ return {
   config = function()
     require("tokyonight").setup({
       style = "night",
+      transparent = true,
       on_highlights = function(hl, c)
         local prompt = "#2d3149"
         hl.TelescopeNormal = {
