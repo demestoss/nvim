@@ -58,6 +58,8 @@ vim.keymap.set("n", "*", "*zz", { silent = true })
 vim.keymap.set("n", "#", "#zz", { silent = true })
 vim.keymap.set("n", "g*", "g*zz", { silent = true })
 
+vim.keymap.set("v", "<leader>ss", ":Silicon<CR>")
+
 -- vim.keymap.set("n", "<up>", "<nop>")
 -- vim.keymap.set("n", "<down>", "<nop>")
 -- vim.keymap.set("n", "<up>", "<nop>")

@@ -105,7 +105,9 @@ return {
     pcall(require("telescope").load_extension, "frecency")
     pcall(require("telescope").load_extension, "fzf")
 
-    vim.keymap.set("n", "<C-e>", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
+    vim.keymap.set("n", "<C-e>", function()
+      require("telescope.builtin").oldfiles({ previewer = false, layout_config = { width = 0.6 } })
+    end, { desc = "[?] Find recently opened files" })
     vim.keymap.set(
       "n",
       "<leader>fh",

@@ -16,7 +16,7 @@ return {
   },
   keys = {
     {
-      "<leader>e",
+      "<leader>x",
       function()
         require("tfm").open()
       end,

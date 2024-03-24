@@ -1,3 +1,5 @@
+require('demestoss.core.globals')
+
 return {
   "zbirenbaum/copilot.lua",
   lazy = true,
@@ -5,6 +7,7 @@ return {
   dependencies = {
     "zbirenbaum/copilot-cmp",
   },
+  enabled = Is_Enabled('copilot.lua'),
   config = function()
     require("copilot").setup({
       suggestion = { enabled = false },

@@ -12,6 +12,7 @@ M.plugins = {
   ["tokyonight"] = { enabled = true },
   ["lualine.nvim"] = { enabled = true },
   ["vim-illuminate"] = { enabled = true },
+  ["copilot.lua"] = { enabled = false },
   ["rainbow_delimiters.nvim"] = { enabled = false },
 }
 
