@@ -19,11 +19,6 @@ return {
 
     require("telescope").setup({
       defaults = {
-        borderchars = {
-          prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
-          results = { " " },
-          preview = { " " },
-        },
         mappings = {
           i = {
             ["<C-u>"] = false,

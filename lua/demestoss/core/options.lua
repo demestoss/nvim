@@ -1,9 +1,13 @@
-vim.opt.termguicolors = true
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 vim.o.shiftwidth = 2
 vim.o.tabstop = 2
+
+vim.o.showbreak = "+++ "
+vim.o.listchars = "trail:."
+vim.o.errorbells = false
+vim.o.visualbell = false
 
 -- Mouse
 vim.o.mouse = ""
@@ -17,7 +21,7 @@ vim.o.cursorline = true
 
 vim.o.guicursor = ""
 
-vim.o.mouse = "a"
+-- vim.o.mouse = ""
 vim.o.clipboard = "unnamedplus"
 vim.o.scrolloff = 18
 vim.o.showmode = false
@@ -59,3 +63,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
+vim.opt.termguicolors = true
+
+vim.cmd([[
+set background=light
+let g:dracula_colorterm = 0
+colorscheme alucard
+]])

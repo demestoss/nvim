@@ -1,3 +1,5 @@
+require("demestoss.core.globals")
+
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
@@ -7,7 +9,7 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        theme = "tokyonight",
+        theme = "auto",
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
       },
@@ -15,7 +17,11 @@ return {
         lualine_a = { "mode" },
         lualine_b = { "diff", "diagnostics" },
         lualine_c = { { "branch", icons_enabled = false, icon = nil }, require("lsp-progress").progress },
-        lualine_x = { { "filetype", icon_only = true }, { "filename", path = 1 }, "copilot" },
+        lualine_x = {
+          { "filetype", icon_only = true },
+          { "filename", path = 1 },
+          -- "copilot"
+        },
         lualine_y = { "progress" },
         lualine_z = { "location" },
       },

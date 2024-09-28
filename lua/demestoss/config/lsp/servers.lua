@@ -41,12 +41,10 @@ local servers = {
     },
   },
   tsserver = {},
-  svelte = {},
+  biome = {},
+  tailwindcss = {},
   -- unocss = {},
   gopls = {},
-  -- volar = {
-  --   filetypes = { "vue", "typescript", "javascript" },
-  -- },
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },

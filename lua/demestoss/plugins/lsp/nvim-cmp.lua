@@ -57,12 +57,11 @@ return {
       sources = cmp.config.sources({
         { name = "copilot" },
         { name = "nvim_lsp", keyword_length = 3 }, -- from language server
-        { name = 'luasnip' },
-        -- { name = "nvim_lsp_signature_help" }, -- display function signatures with current parameter emphasized
-        { name = "nvim_lua", keyword_length = 2 }, -- complete neovim's Lua runtime API such vim.lsp.*
-      }, {
-        -- { name = "buffer" }, -- text within current buffer
+        { name = "luasnip" },
+        { name = "nvim_lsp_signature_help" }, -- display function signatures with current parameter emphasized
+        { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
+        -- { name = "nvim_lua", keyword_length = 2 }, -- complete neovim's Lua runtime API such vim.lsp.*
       }),
       formatting = {
         fields = { "abbr", "menu", "kind" },

@@ -3,7 +3,7 @@ require("demestoss.core.globals")
 return {
   "rolv-apneseth/tfm.nvim",
   lazy = false,
-  enabled = Is_Enabled("tfm.nvim"),
+  enabled = false,
   opts = {
     replace_netrw = true,
     file_manager = "yazi",
